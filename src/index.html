@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FlipPlay menyatukan anime, drama, manga, dan light novel dalam satu ruang hiburan." />
+    <title>FlipPlay — Cerita favorit, semua dalam satu tempat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./output.css" />
+    <style>
+      /* Lebar penuh: padding kiri-kanan ikut ukuran browser (20px di HP, sampai 72px di layar lebar) */
+      .site-x { padding-inline: clamp(20px, 4vw, 72px); }
+
+      /* Judul hero membesar mengikuti lebar layar */
+      .hero-title { font-size: clamp(2.75rem, 6vw, 6.5rem); }
+      .hero-img { height: clamp(16rem, 26vw, 30rem); }
+
+      /* Desktop: kartu hero mengisi kolom kanan penuh */
+      @media (min-width: 1024px) { .hero-card { max-width: none; margin-left: 0; } }
+
+      /* Layar sangat lebar: kolom hero seimbang, kartu kategori lebih tinggi */
+      @media (min-width: 1536px) {
+        .tile { min-height: 20rem; }
+      }
+
+      /* Mobile: kartu kategori lebih pendek, jarak antarbagian lebih rapat */
+      @media (max-width: 639px) {
+        .tile { min-height: 9.5rem; }
+        .hero-title { letter-spacing: -0.045em; }
+      }
+    </style>
+  </head>
+  <body class="bg-page font-['DM_Sans'] text-main antialiased">
+    <header class="relative z-20 border-b border-line bg-page">
+      <nav class="flex w-full items-center justify-between px-5 py-4 sm:px-8 lg:px-12 site-x" aria-label="Navigasi utama">
+        <a href="#beranda" class="flex items-center gap-2.5" aria-label="FlipPlay, beranda">
+          <span class="grid size-9 place-items-center rounded-xl bg-accent font-['Space_Grotesk'] text-lg font-bold text-on-accent" aria-hidden="true">f.</span>
+          <span class="font-['Space_Grotesk'] text-xl font-bold tracking-tight">flipplay<span class="text-accent">.</span></span>
+        </a>
+        <div class="hidden items-center gap-8 text-sm text-muted md:flex">
+          <a href="#jelajahi">Jelajahi</a>
+          <a href="./vibe-grid.html" class="font-semibold text-main">Vibe Grid</a>
+          <a href="#keunggulan">Keunggulan</a>
+          <a href="#tentang">Tentang kami</a>
+        </div>
+        <div class="hidden items-center gap-5 sm:flex">
+          <a class="text-sm font-medium text-muted" href="#kontak">Masuk</a>
+          <a class="rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-on-accent" href="#kontak">Gabung gratis <span aria-hidden="true">↗</span></a>
+        </div>
+        <button id="menu-toggle" class="grid size-10 place-items-center rounded-full border border-line text-main sm:hidden" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" /></svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden border-t border-line px-5 py-4 sm:hidden">
+        <div class="flex w-full flex-col gap-4 text-sm text-muted site-x">
+          <a class="mobile-link" href="#jelajahi">Jelajahi</a>
+          <a class="mobile-link font-semibold text-main" href="./vibe-grid.html">Vibe Grid</a>
+          <a class="mobile-link" href="#keunggulan">Keunggulan</a>
+          <a class="mobile-link" href="#tentang">Tentang kami</a>
+          <a class="mobile-link font-bold text-accent" href="#kontak">Gabung gratis ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="beranda" class="relative overflow-hidden">
+        <div class="grid w-full items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-12 lg:py-24 site-x">
+          <div class="relative z-10">
+            <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-field px-3.5 py-2 text-xs font-semibold tracking-wide text-muted">
+              <span class="size-2 rounded-full bg-accent"></span>
+              SATU APLIKASI, BANYAK DUNIA
+            </p>
+            <h1 class="hero-title max-w-2xl font-['Space_Grotesk'] text-5xl font-semibold leading-[1.04] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
+              Cerita favoritmu,<br />
+              <span class="text-accent">tanpa batas.</span>
+            </h1>
+            <p class="mt-6 max-w-lg text-base leading-7 text-muted sm:text-lg sm:leading-8">
+              Dari anime yang bikin penasaran sampai novel yang susah ditutup. Temukan semuanya di satu ruang hiburan.
+            </p>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="./vibe-grid.html" class="inline-flex items-center justify-center gap-3 rounded-full bg-accent px-6 py-3.5 font-bold text-on-accent">Buka Vibe Grid <span aria-hidden="true">↗</span></a>
+              <a href="#keunggulan" class="inline-flex items-center justify-center gap-2 rounded-full border border-line px-6 py-3.5 font-semibold text-main"><span class="grid size-6 place-items-center rounded-full border border-line text-xs" aria-hidden="true">▶</span> Kenali FlipPlay</a>
+            </div>
+            <div class="mt-10 flex items-center gap-4 border-t border-line pt-6">
+              <div class="flex -space-x-2" aria-hidden="true">
+                <span class="grid size-8 place-items-center rounded-full border-2 border-page bg-lilac text-xs">✦</span>
+                <span class="grid size-8 place-items-center rounded-full border-2 border-page bg-coral text-xs">✿</span>
+                <span class="grid size-8 place-items-center rounded-full border-2 border-page bg-sky text-xs">✧</span>
+              </div>
+              <p class="text-sm text-muted"><span class="font-bold text-main">Satu tempat.</span> Banyak cerita untuk dibagikan.</p>
+            </div>
+          </div>
+
+          <div class="hero-card relative mx-auto w-full max-w-xl lg:ml-auto">
+            <div class="overflow-hidden rounded-3xl border border-line bg-panel">
+              <img class="hero-img block h-64 w-full object-cover sm:h-80" src="https://s3.schoolmedia.id/05-news-sm/uploads/konten/6a7e76341ec350.webp"
+              <div class="bg-panel p-6 sm:p-8">
+                <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-line bg-chip px-3 py-1.5 text-xs font-medium"><span class="size-1.5 rounded-full bg-accent"></span> Pilihan minggu ini</p>
+                <p class="text-xs font-bold tracking-[0.25em] text-accent">TEMUKAN PRESIDEN BARU</p>
+                <h2 class="mt-2 font-['Space_Grotesk'] text-3xl font-semibold tracking-tight sm:text-4xl">Saya Mendapat<br />Laporan.</h2>
+                <p class="mt-3 max-w-sm text-sm leading-6 text-muted">Tonton Baca dan Pantau Pidato Prabowo Lainnya.</p>
+                <a href="./vibe-grid.html" class="mt-5 flex w-fit items-center gap-2 text-sm font-semibold">
+                  <span class="grid size-9 place-items-center rounded-full bg-accent text-on-accent" aria-hidden="true">▶</span>
+                  Daripada lihat pidato lebih baik nonton anime
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="jelajahi" class="border-y border-line bg-section">
+        <div class="w-full px-5 py-16 sm:px-8 sm:py-20 lg:px-12 site-x">
+          <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div>
+              <p class="text-xs font-bold tracking-[0.22em] text-accent">PILIH SUASANAMU</p>
+              <h2 class="mt-3 font-['Space_Grotesk'] text-3xl font-semibold tracking-tight sm:text-4xl">Dunia cerita, dalam genggaman.</h2>
+            </div>
+            <p class="max-w-sm text-sm leading-6 text-muted">Mau maraton, baca sebentar, atau cari cerita baru? Selalu ada yang pas dengan mood-mu.</p>
+          </div>
+          <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <a href="#kontak" class="tile flex min-h-56 flex-col justify-between rounded-2xl border border-line bg-panel p-5">
+              <span class="grid size-10 place-items-center rounded-xl bg-chip text-xl" aria-hidden="true">▣</span>
+              <div><p class="text-xs font-semibold uppercase tracking-[0.18em] text-muted">TONTON</p><h3 class="mt-1 font-['Space_Grotesk'] text-2xl font-semibold">Drama</h3><p class="mt-1 text-sm text-muted">Bikin ikut terbawa suasana</p></div>
+            </a>
+            <a href="#kontak" class="tile flex min-h-56 flex-col justify-between rounded-2xl border border-line bg-panel p-5">
+              <span class="grid size-10 place-items-center rounded-xl bg-chip text-xl" aria-hidden="true">▤</span>
+              <div><p class="text-xs font-semibold uppercase tracking-[0.18em] text-muted">BACA</p><h3 class="mt-1 font-['Space_Grotesk'] text-2xl font-semibold">Manga</h3><p class="mt-1 text-sm text-muted">Lembar demi lembar, seru</p></div>
+            </a>
+            <a href="#kontak" class="tile flex min-h-56 flex-col justify-between rounded-2xl border border-line bg-panel p-5">
+              <span class="grid size-10 place-items-center rounded-xl bg-chip text-xl" aria-hidden="true">⌁</span>
+              <div><p class="text-xs font-semibold uppercase tracking-[0.18em] text-muted">BACA</p><h3 class="mt-1 font-['Space_Grotesk'] text-2xl font-semibold">Light novel</h3><p class="mt-1 text-sm text-muted">Imajinasi tanpa batas</p></div>
+            </a>
+            <a href="./vibe-grid.html" class="tile flex min-h-56 flex-col justify-between rounded-2xl border border-line bg-panel p-5">
+              <span class="grid size-10 place-items-center rounded-xl bg-chip text-xl" aria-hidden="true">▶</span>
+              <div><p class="text-xs font-semibold uppercase tracking-[0.18em] text-muted">TONTON</p><h3 class="mt-1 font-['Space_Grotesk'] text-2xl font-semibold">Anime</h3><p class="mt-1 text-sm text-muted">Petualangan di setiap episode</p><p class="mt-3 text-sm font-semibold text-accent">Buka Vibe Grid ↗</p></div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="keunggulan" class="w-full px-5 py-16 sm:px-8 sm:py-20 lg:px-12 site-x">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="overflow-hidden rounded-3xl border border-line bg-panel">
+            <img class="h-64 w-full object-cover sm:h-80" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=85" alt="Cahaya matahari pagi menyinari perbukitan" loading="lazy" />
+            <div class="p-6 sm:p-8">
+              <p class="text-xs font-bold tracking-[0.2em] text-accent">BUKAN CUMA MENONTON</p>
+              <p class="mt-3 font-['Space_Grotesk'] text-3xl font-semibold leading-tight">Cara baru untuk menikmati cerita.</p>
+            </div>
+          </div>
+          <div id="tentang">
+            <p class="text-xs font-bold tracking-[0.22em] text-accent">KENALAN DENGAN FLIPPLAY</p>
+            <h2 class="mt-3 font-['Space_Grotesk'] text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">Semua cerita kesukaanmu. Satu pengalaman.</h2>
+            <p class="mt-5 leading-7 text-muted">Kami percaya cerita terbaik selalu menemukan jalannya. FlipPlay menyatukan tontonan dan bacaan dalam satu tempat yang nyaman, supaya kamu bebas menikmati dunia favoritmu dengan caramu sendiri.</p>
+            <ul class="mt-7 space-y-4">
+              <li class="flex gap-3"><span class="grid size-6 shrink-0 place-items-center rounded-full bg-chip text-xs font-bold text-accent" aria-hidden="true">✓</span><span><strong class="font-semibold text-main">Mudah dijelajahi</strong><span class="mt-1 block text-sm text-muted">Temukan anime, drama, manga, dan novel dari satu halaman.</span></span></li>
+              <li class="flex gap-3"><span class="grid size-6 shrink-0 place-items-center rounded-full bg-chip text-xs font-bold text-accent" aria-hidden="true">✓</span><span><strong class="font-semibold text-main">Dibuat untuk para penggemar</strong><span class="mt-1 block text-sm text-muted">Nikmati cerita yang kamu suka, kapan pun mood-mu datang.</span></span></li>
+              <li class="flex gap-3"><span class="grid size-6 shrink-0 place-items-center rounded-full bg-chip text-xs font-bold text-accent" aria-hidden="true">✓</span><span><strong class="font-semibold text-main">Ruang untuk cerita baru</strong><span class="mt-1 block text-sm text-muted">Selalu ada dunia baru untuk ditemukan berikutnya.</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontak" class="border-y border-line bg-section">
+        <div class="grid w-full gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:px-12 site-x">
+          <div>
+            <p class="text-xs font-bold tracking-[0.22em] text-accent">JADI YANG PERTAMA TAHU</p>
+            <h2 class="mt-3 max-w-md font-['Space_Grotesk'] text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">Cerita seru segera dimulai.</h2>
+            <p class="mt-4 max-w-md leading-7 text-muted">Tinggalkan emailmu untuk mendapat kabar terbaru tentang FlipPlay dan kesempatan ikut mencoba lebih awal.</p>
+            <p class="mt-6 text-sm text-subtle"><span class="mr-2 text-accent" aria-hidden="true">✦</span>Tanpa spam. Hanya kabar yang layak ditunggu.</p>
+          </div>
+          <form id="contact-form" class="rounded-3xl border border-line bg-page p-5 sm:p-8">
+            <h3 class="font-['Space_Grotesk'] text-xl font-semibold">Ikuti kabarnya</h3>
+            <p class="mt-1 text-sm text-muted">Isi formulir singkat ini untuk terhubung dengan kami.</p>
+            <div class="mt-6 grid gap-5 sm:grid-cols-2">
+              <div>
+                <label class="mb-2 block text-sm font-medium text-main" for="name">Nama</label>
+                <input class="w-full rounded-xl border border-line bg-field px-4 py-3 text-sm text-main outline-none placeholder:text-subtle focus:border-accent" id="name" name="name" type="text" placeholder="Namamu" autocomplete="name" required />
+              </div>
+              <div>
+                <label class="mb-2 block text-sm font-medium text-main" for="email">Email</label>
+                <input class="w-full rounded-xl border border-line bg-field px-4 py-3 text-sm text-main outline-none placeholder:text-subtle focus:border-accent" id="email" name="email" type="email" placeholder="nama@email.com" autocomplete="email" required />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="mb-2 block text-sm font-medium text-main" for="message">Apa yang paling kamu tunggu?</label>
+                <textarea class="w-full resize-y rounded-xl border border-line bg-field px-4 py-3 text-sm text-main outline-none placeholder:text-subtle focus:border-accent" id="message" name="message" rows="3" placeholder="Anime, drama, manga, atau light novel?" required></textarea>
+              </div>
+            </div>
+            <button class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 font-bold text-on-accent sm:w-auto" type="submit">Kirim pesan <span aria-hidden="true">↗</span></button>
+            <p id="form-status" class="mt-4 text-sm text-accent" role="status" aria-live="polite"></p>
+            <p class="mt-2 text-xs leading-5 text-subtle">Demo formulir: pesan hanya ditampilkan di halaman ini dan belum dikirim ke server.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="w-full px-5 py-8 sm:px-8 lg:px-12 site-x">
+      <div class="flex flex-col gap-5 border-b border-line pb-7 sm:flex-row sm:items-center sm:justify-between">
+        <a href="#beranda" class="flex w-fit items-center gap-2.5" aria-label="FlipPlay, kembali ke atas">
+          <span class="grid size-8 place-items-center rounded-lg bg-accent font-['Space_Grotesk'] font-bold text-on-accent" aria-hidden="true">f.</span>
+          <span class="font-['Space_Grotesk'] text-lg font-bold">flipplay<span class="text-accent">.</span></span>
+        </a>
+        <p class="text-sm text-subtle">Tempat cerita favoritmu bertemu.</p>
+        <div class="flex gap-5 text-sm text-muted">
+          <a href="#jelajahi">Jelajahi</a>
+          <a href="./vibe-grid.html">Vibe Grid</a>
+          <a href="#kontak">Kontak</a>
+          <a href="#tentang">Tentang</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 pt-5 text-xs text-subtle sm:flex-row sm:justify-between">
+        <p>© 2026 FlipPlay. Dibuat </p>
+        <p>Muhammad Alwi Pratama - 202410370110266</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector("#menu-toggle");
+      const mobileMenu = document.querySelector("#mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+        menuToggle.setAttribute("aria-label", isExpanded ? "Buka menu navigasi" : "Tutup menu navigasi");
+        mobileMenu.classList.toggle("hidden", isExpanded);
+      });
+
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+        });
+      });
+
+      document.querySelector("#contact-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = document.querySelector("#name").value.trim();
+        document.querySelector("#form-status").textContent = `Terima kasih sudah mengirim pesan, ${name}!`;
+        event.currentTarget.reset();
+      });
+    </script>
+  </body>
+</html>
